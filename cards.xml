@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--CARDS-->
+<cards>
+    <monsters>
+        <monster>
+            <id>m00001</id>
+            <name>neural network</name>
+            <attack>2</attack>
+            <defense>2</defense>
+        </monster>
+        <monster>
+            <id>m000010</id>
+            <name>researcher</name>
+            <attack>1</attack>
+            <defense>1</defense>
+        </monster>
+        <monster>
+            <id>m00100</id>
+            <name>content</name>
+            <attack>1</attack>
+            <defense>0</defense>
+        </monster>
+        <monster>
+            <id>m01000</id>
+            <name>reviewer</name>
+            <attack>1</attack>
+            <defense>3</defense>
+        </monster>
+    </monsters>
+    <actions>
+        <action>
+            <id>a00001</id>
+            <name>deepness</name>
+            <constant>TRUE</constant>
+            <effect>
+                <type>add</type>
+                <target self="TRUE">board</target>
+                <card-id>m00001</card-id>
+                <attack>+2</attack>
+                <defense>+2</defense>
+                <turns>+1</turns>
+            </effect>
+        </action>
+        <action>
+            <id>a00010</id>
+            <name>publish</name>
+            <constant>TRUE</constant>
+            <effect>
+                <type>add</type>
+                <target self="TRUE">board</target>
+                <card-id>m00010</card-id>
+                <attack>+1</attack>
+                <defense>+1</defense>
+                <turns>0</turns>
+            </effect>
+        </action>
+        <action>
+            <id>a00100</id>
+            <name>curiosity driven</name>
+            <constant>FALSE</constant>
+            <effect>
+                <type>examine</type>
+                <target self="TRUE">deck</target>
+                <quantity>1</quantity>
+            </effect>
+        </action>
+        <action>
+            <id>a01000</id>
+            <name>procedurally generate content</name>
+            <constant>FALSE</constant>
+            <effect>
+                <type>place</type>
+                <target self="TRUE">board</target>
+                <card-id>m00100</card-id>
+            </effect>
+        </action>
+        <action>
+            <id>a10000</id>
+            <name>no funding</name>
+            <constant>FALSE</constant>
+            <effect>
+                <type>destroy</type>
+                <target self="TRUE">hand</target>
+                <card-id>ANY</card-id>
+                <quantity>1</quantity>
+                <location>game</location>
+            </effect>
+        </action>
+    </actions>
+    <traps>
+        <trap>
+            <id>t00001</id>
+            <name>null reference exception</name>
+            <effect>
+                <type>interrupt</type>
+                <target self="FALSE">ANY</target>
+            </effect>
+        </trap>
+        <trap>
+            <id>t00010</id>
+            <name>bug found</name>
+            <effect>
+                <type>place</type>
+                <target self="FALSE">deck</target>
+                <card-id>r00001</card-id>
+            </effect>
+        </trap>
+        <trap>
+            <id>t00100</id>
+            <name>debugger</name>
+            <effect>
+                <type>destroy</type>
+                <target self="TRUE">deck</target>
+                <card-id>r00001</card-id>
+                <quantity>1</quantity>
+                <location>NONE</location>
+            </effect>
+        </trap>
+        <trap>
+            <id>t01000</id>
+            <name>elitism = "0"</name>
+            <effect>
+                <type>destroy</type>
+                <target self="ALL">board</target>
+                <card-id>ALL</card-id>
+                <quantity>ALL</quantity>
+                <location>graveyard</location>
+            </effect>
+        </trap>
+        <trap>
+            <id>t10000</id>
+            <name>conference</name>
+            <effect>
+                <type>delay</type>
+                <target self="ALL">board</target>
+                <card-id>ALL</card-id>
+                <duration>1</duration>
+            </effect>
+        </trap>
+    </traps>
+    <miscellanies>
+        <miscellany>
+            <id>r00001</id>
+            <name>bug</name>
+        </miscellany>
+    </miscellanies>
+</cards>
